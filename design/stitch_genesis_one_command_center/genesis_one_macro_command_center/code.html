@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#353534",
+                        "on-primary": "#680011",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#5b403f",
+                        "error": "#ffb4ab",
+                        "surface": "#131313",
+                        "inverse-primary": "#bb152c",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary": "#68000b",
+                        "primary-fixed": "#ffdad8",
+                        "on-secondary-fixed-variant": "#414560",
+                        "surface-bright": "#3a3939",
+                        "surface-container-highest": "#353534",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#dee0ff",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-dim": "#131313",
+                        "primary-container": "#ff535b",
+                        "on-primary-fixed-variant": "#92001c",
+                        "on-surface-variant": "#e4bebc",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-fixed": "#410007",
+                        "inverse-on-surface": "#313030",
+                        "tertiary": "#ffb3ae",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#2b2f48",
+                        "on-primary-container": "#5b000e",
+                        "primary": "#ffb3b1",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "outline": "#ab8987",
+                        "secondary-container": "#414560",
+                        "secondary": "#c1c4e5",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "on-secondary-fixed": "#161a32",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-tint": "#ffb3b1",
+                        "tertiary-container": "#ff5352",
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "on-secondary-container": "#b0b3d3",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#5c0008",
+                        "secondary-fixed-dim": "#c1c4e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "container-padding": "24px",
+                        "margin": "16px",
+                        "unit": "4px",
+                        "grid-size": "32px"
+                    },
+                    "fontFamily": {
+                        "data-lg": ["JetBrains+Mono"],
+                        "label-caps": ["JetBrains+Mono"],
+                        "header-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-sm": ["JetBrains+Mono"],
+                        "data-md": ["JetBrains+Mono"]
+                    },
+                    "fontSize": {
+                        "data-lg": ["18px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "label-caps": ["10px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "header-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["13px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-sm": ["11px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "data-md": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(91, 64, 63, 0.1) 1px, transparent 0);
+            background-size: 32px 32px;
+            background-color: #131313;
+        }
+        .glass {
+            background: rgba(19, 19, 19, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(171, 137, 135, 0.2);
+        }
+        .glass-active {
+            border: 1px solid #ffb3b1;
+            box-shadow: 0 0 8px rgba(230, 57, 70, 0.4);
+        }
+        .status-ring {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid rgba(171, 137, 135, 0.1);
+        }
+        .status-ring.active {
+            border-color: #ffb3b1;
+            box-shadow: inset 0 0 15px rgba(230, 57, 70, 0.3), 0 0 10px rgba(230, 57, 70, 0.2);
+        }
+        .terminal-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .terminal-scroll::-webkit-scrollbar-thumb {
+            background: #5b403f;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-gutter w-full h-16 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 docked full-width top-0">
+<div class="flex items-center gap-margin">
+<span class="font-display-lg text-display-lg font-bold text-primary tracking-tighter">GENESIS-ONE</span>
+<div class="flex gap-gutter items-center ml-8">
+<button class="font-header-sm text-header-sm uppercase tracking-widest text-primary font-bold hover:text-primary hover:bg-surface-variant/50 transition-colors px-2 py-1">MATRIX</button>
+<button class="font-header-sm text-header-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-variant/50 transition-colors px-2 py-1">SHADOW_MAPPER</button>
+</div>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="flex items-center gap-2 mr-4 bg-surface-container-low px-3 py-1 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">vpn_lock</span>
+<span class="font-label-caps text-label-caps text-primary">TOR_CIRCUIT: ACTIVE</span>
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_5px_#ffb3b1]"></div>
+</div>
+<div class="flex gap-4 mr-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">security</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">sensors</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">settings_input_component</span>
+</div>
+<img alt="System Operator Avatar" class="w-8 h-8 rounded-none border border-primary/50" data-alt="A professional portrait of a futuristic system operator in a dimly lit command center. The lighting is dominated by high-contrast crimson and deep charcoal tones. The operator wears tactical gear with subtle glowing hardware interfaces integrated into the collar. The background is a blurred mosaic of holographic data streams and terminal text." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQhl4HD4RUPmBvrhfzZvrxHq8Zb-1hYwg4YsAlwo36vtdJz2OMvSvkiwwxEigj8QiGTZBDv3MG3YJhw20CKU9GU116OgvfVXyYEaQicJUP2lLQL36QkPKhmzEO0FIrc8wlLHALtsBcVtQhSMoPtKNtAYE9YZF3zbfDFL3mTl6aiV5MoyAZ2zEci9JFIsJzFX0EsBQqU3qxKSJYKfYVzs-D9VPsA2WLkSey_Ax71s8o5iQePuqF8J9mvlQT-XKokpfnKJOZJthrFA"/>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-full py-margin bg-surface-container-low/90 backdrop-blur-lg border-r border-outline-variant/30 docked left-0 h-full w-64">
+<div class="px-gutter mb-8">
+<h2 class="font-data-lg text-data-lg text-primary">CORE_OS</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant/70">MACRO_UNIT_01</p>
+</div>
+<nav class="flex-1">
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-gutter py-3 bg-primary/10 text-primary border-l-2 border-primary shadow-[0_0_8px_rgba(255,179,177,0.3)] transition-all" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-label-caps">MATRIX</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant/70 hover:bg-primary/5 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">waves</span>
+<span class="font-label-caps text-label-caps">WHALE_FEED</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant/70 hover:bg-primary/5 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-label-caps text-label-caps">TERMINAL</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant/70 hover:bg-primary/5 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-caps text-label-caps">STRAT_MAP</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant/70 hover:bg-primary/5 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">lan</span>
+<span class="font-label-caps text-label-caps">NETWORK</span>
+</a>
+</div>
+</nav>
+<div class="px-gutter mt-auto pt-margin border-t border-outline-variant/20 space-y-4">
+<div class="flex items-center gap-2 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[18px]">vpn_lock</span>
+<span class="font-label-caps text-label-caps">TOR_CIRCUIT</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span class="font-label-caps text-label-caps">ENCRYPTION</span>
+</div>
+<button class="w-full py-3 bg-error-container text-on-error-container font-label-caps text-label-caps border border-error/50 hover:bg-error transition-all mt-4">
+                    ABORT ALL POSITIONS
+                </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-hidden grid grid-cols-4 grid-rows-[1fr_200px] gap-gutter p-gutter">
+<!-- Column 1: Whale Feed -->
+<div class="col-span-1 glass flex flex-col overflow-hidden">
+<div class="px-4 py-2 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-high/50">
+<span class="font-label-caps text-label-caps text-primary">WHALE_FEED</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">filter_list</span>
+</div>
+<div class="flex-1 overflow-y-auto terminal-scroll p-2 space-y-2">
+<!-- Whale Item -->
+<div class="p-3 border-l-2 border-primary/40 bg-surface-container/30 hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start mb-2">
+<span class="font-data-md text-data-md text-on-surface">Poseidon_Alpha</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">ID: 0x9f...a2</span>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-caps text-[10px] text-on-surface-variant">POSITION_SIZE</span>
+<span class="font-data-md text-data-md text-primary">$42,500,000</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[9px] font-label-caps">
+<span>RESEARCHING...</span>
+<span>74%</span>
+</div>
+<div class="w-full h-1 bg-surface-variant overflow-hidden">
+<div class="bg-primary h-full w-[74%]"></div>
+</div>
+</div>
+</div>
+<!-- Whale Item Repeating... -->
+<div class="p-3 border-l-2 border-outline-variant/40 bg-surface-container/20">
+<div class="flex justify-between items-start mb-2">
+<span class="font-data-md text-data-md text-on-surface">Kraken_Node_09</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">ID: 0x41...bb</span>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-caps text-[10px] text-on-surface-variant">POSITION_SIZE</span>
+<span class="font-data-md text-data-md text-primary">$12,840,000</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[9px] font-label-caps">
+<span>RESEARCHING...</span>
+<span>12%</span>
+</div>
+<div class="w-full h-1 bg-surface-variant overflow-hidden">
+<div class="bg-primary h-full w-[12%]"></div>
+</div>
+</div>
+</div>
+<div class="p-3 border-l-2 border-primary/40 bg-surface-container/30">
+<div class="flex justify-between items-start mb-2">
+<span class="font-data-md text-data-md text-on-surface">Leviathan_Vault</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">ID: 0x88...f1</span>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-caps text-[10px] text-on-surface-variant">POSITION_SIZE</span>
+<span class="font-data-md text-data-md text-primary">$108,000,000</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[9px] font-label-caps">
+<span>ANALYSIS_COMPLETE</span>
+<span>100%</span>
+</div>
+<div class="w-full h-1 bg-primary shadow-[0_0_4px_#ffb3b1]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2 & 3 Combined: Confluence Matrix & Charts -->
+<div class="col-span-2 flex flex-col gap-gutter">
+<!-- Confluence Matrix (Top) -->
+<div class="glass p-6 flex justify-around items-center h-48">
+<div class="flex flex-col items-center gap-4">
+<div class="status-ring active flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[40px]">waves</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary">WHALE_CONFL</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="status-ring active flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[40px]">newspaper</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary">NEWS_ALIGNED</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="status-ring flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-on-surface-variant text-[40px]">monitoring</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">CHART_WAIT</span>
+</div>
+</div>
+<!-- Charts (Bottom) -->
+<div class="flex-1 grid grid-cols-2 gap-gutter">
+<!-- Chart 1 -->
+<div class="glass flex flex-col">
+<div class="px-4 py-2 border-b border-outline-variant/30 flex justify-between items-center">
+<span class="font-data-md text-data-md">OIL_CRUDE / USD</span>
+<span class="font-label-caps text-[10px] bg-primary/20 text-primary px-1">15M</span>
+</div>
+<div class="flex-1 relative p-4 bg-surface-container-lowest overflow-hidden">
+<!-- SVG Placeholder for Trading Chart -->
+<svg class="w-full h-full opacity-70" viewbox="0 0 400 200">
+<!-- Grid Lines -->
+<line stroke="#353534" stroke-width="0.5" x1="0" x2="400" y1="50" y2="50"></line>
+<line stroke="#353534" stroke-width="0.5" x1="0" x2="400" y1="100" y2="100"></line>
+<line stroke="#353534" stroke-width="0.5" x1="0" x2="400" y1="150" y2="150"></line>
+<!-- Fib Levels -->
+<line stroke="#bb152c" stroke-dasharray="4" stroke-width="1" x1="0" x2="400" y1="30" y2="30"></line>
+<text fill="#bb152c" font-family="JetBrains Mono" font-size="10" x="350" y="25">0.618</text>
+<!-- EMAs -->
+<path d="M0 180 Q100 150 200 160 T400 120" fill="none" stroke="#5b403f" stroke-width="1.5"></path>
+<path d="M0 160 Q100 130 200 140 T400 100" fill="none" stroke="#ffb3b1" stroke-width="1"></path>
+<!-- Rejection Wicks -->
+<line class="animate-pulse" stroke="#ff535b" stroke-width="2" x1="280" x2="280" y1="60" y2="30"></line>
+<circle cx="280" cy="30" fill="#ff535b" r="2"></circle>
+</svg>
+</div>
+</div>
+<!-- Chart 2 -->
+<div class="glass flex flex-col">
+<div class="px-4 py-2 border-b border-outline-variant/30 flex justify-between items-center">
+<span class="font-data-md text-data-md">BTCUSD / PERP</span>
+<span class="font-label-caps text-[10px] bg-primary/20 text-primary px-1">1H</span>
+</div>
+<div class="flex-1 relative p-4 bg-surface-container-lowest overflow-hidden">
+<svg class="w-full h-full opacity-70" viewbox="0 0 400 200">
+<line stroke="#353534" stroke-width="0.5" x1="0" x2="400" y1="40" y2="40"></line>
+<line stroke="#353534" stroke-width="0.5" x1="0" x2="400" y1="80" y2="80"></line>
+<line stroke="#353534" stroke-width="0.5" x1="0" x2="400" y1="120" y2="120"></line>
+<!-- Fib Levels -->
+<line stroke="#bb152c" stroke-dasharray="4" stroke-width="1" x1="0" x2="400" y1="140" y2="140"></line>
+<!-- EMAs -->
+<path d="M0 120 Q150 140 250 100 T400 40" fill="none" stroke="#ffb3b1" stroke-width="1"></path>
+<!-- Price Action -->
+<path d="M0 130 L50 140 L100 120 L150 135 L200 110 L250 125 L300 80 L350 90 L400 35" fill="none" stroke="white" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 4: Risk HUD Sidebar -->
+<div class="col-span-1 glass p-4 flex flex-col gap-6">
+<div class="border-b border-outline-variant/30 pb-2 mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">RISK_HUD_OVERRIDE</span>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant">LIVE_MARGIN</span>
+<div class="flex items-baseline gap-2">
+<span class="font-data-lg text-[28px] text-primary">470%</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">expand_less</span>
+</div>
+<div class="w-full h-1 bg-surface-variant mt-1">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant">ATR_VOLATILITY</span>
+<div class="flex items-baseline gap-2">
+<span class="font-data-lg text-[24px] text-on-surface">1.5x</span>
+<span class="font-label-caps text-[10px] text-error">HIGH</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 p-3 bg-error-container/10 border border-error/20">
+<span class="font-label-caps text-[10px] text-error">MAX_EXPOSURE_LOCKED</span>
+<span class="font-data-md text-data-md">$1,240,000.00</span>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-gutter">
+<button class="w-full py-4 glass hover:glass-active transition-all group">
+<span class="font-label-caps text-label-caps group-hover:text-primary">EXECUTE STRAT_B</span>
+</button>
+<button class="w-full py-6 bg-error text-on-error font-label-caps text-label-caps border border-error/50 hover:bg-error-container transition-all flex flex-col items-center justify-center gap-1 shadow-[0_0_20px_rgba(230,57,70,0.3)]">
+<span class="material-symbols-outlined">warning</span>
+                        ABORT ALL POSITIONS
+                    </button>
+</div>
+</div>
+<!-- Bottom Console: Gemma Logic -->
+<div class="col-span-4 glass-active bg-surface-container-high/60 p-4 font-data-md overflow-hidden relative">
+<div class="absolute top-2 right-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-[10px] text-primary">SYSTEM_READY</span>
+</div>
+<div class="flex gap-4">
+<span class="text-primary font-bold">GEMMA_LOGIC_V4:</span>
+<div class="flex-1 terminal-scroll overflow-y-auto max-h-[140px] text-on-surface/90 space-y-1">
+<p class="font-data-md text-on-surface-variant">[2026-05-06 14:22:01] BOOTING_NEURAL_WEIGHTS...</p>
+<p class="font-data-md text-on-surface-variant">[2026-05-06 14:22:05] DATA_STREAM_STABILIZED: [TOR_CIRCUIT_7]</p>
+<p class="font-data-md text-on-surface"><span class="text-primary">[2026-05-06]</span> THESIS: Whale denizz Long at Support; News Validated. Executing....</p>
+<p class="font-data-md text-primary animate-pulse">_PROCESSING QUANTITATIVE BIAS...</p>
+<p class="font-data-md text-on-surface-variant opacity-50">[2026-05-06 14:22:45] REBALANCING_RISK_PARITY...</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Status Hex Extras -->
+<div class="fixed bottom-4 right-4 flex gap-2">
+<div class="w-10 h-10 border border-outline-variant/30 flex items-center justify-center glass backdrop-blur-sm">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">database</span>
+</div>
+<div class="w-10 h-10 border border-primary/30 flex items-center justify-center glass backdrop-blur-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">hub</span>
+</div>
+</div>
+</body></html>

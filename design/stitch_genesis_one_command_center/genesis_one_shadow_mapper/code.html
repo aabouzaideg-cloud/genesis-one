@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#b0b3d3",
+                        "tertiary-container": "#ff5352",
+                        "on-tertiary": "#68000b",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#92001c",
+                        "outline": "#ab8987",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed": "#410007",
+                        "inverse-primary": "#bb152c",
+                        "on-tertiary-container": "#5c0008",
+                        "outline-variant": "#5b403f",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#414560",
+                        "surface-bright": "#3a3939",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#c1c4e5",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed": "#410004",
+                        "on-primary": "#680011",
+                        "tertiary-fixed": "#ffdad7",
+                        "secondary-container": "#414560",
+                        "surface-variant": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "primary-fixed": "#ffdad8",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed": "#dee0ff",
+                        "error": "#ffb4ab",
+                        "on-background": "#e5e2e1",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#c1c4e5",
+                        "tertiary": "#ffb3ae",
+                        "on-primary-container": "#5b000e",
+                        "on-surface-variant": "#e4bebc",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#2b2f48",
+                        "background": "#131313",
+                        "surface-tint": "#ffb3b1",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "primary-container": "#ff535b",
+                        "primary": "#ffb3b1",
+                        "on-secondary-fixed": "#161a32"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "12px",
+                        "margin": "16px",
+                        "grid-size": "32px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Inter"],
+                        "data-sm": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "data-md": ["JetBrains Mono"],
+                        "header-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["10px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-sm": ["11px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "data-lg": ["18px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "data-md": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "header-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["13px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+        .glass-panel {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(171, 137, 135, 0.2);
+        }
+        .active-glow {
+            border: 1px solid #ff535b;
+            box-shadow: 0 0 8px rgba(255, 83, 91, 0.4);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface-dim/85 backdrop-blur-md text-primary font-label-caps text-label-caps tracking-tighter docked full-width top-0 z-50 border-b border-outline-variant/20 flat no shadows flex justify-between items-center h-12 px-margin w-full fixed">
+<div class="flex items-center gap-4">
+<span class="font-label-caps text-data-lg font-bold text-primary tracking-widest">GENESIS-ONE</span>
+<nav class="hidden md:flex gap-6 ml-8">
+<a class="text-primary font-bold hover:text-primary hover:border-primary/40 transition-all duration-200" href="#">SHADOW_MAPPER</a>
+<a class="text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all duration-200" href="#">ANALYTICS</a>
+<a class="text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all duration-200" href="#">EXECUTION</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container px-3 py-1 border border-outline-variant/30">
+<span class="material-symbols-outlined text-[16px] mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-data-sm w-48 uppercase" placeholder="QUERY_SHADOW_NET..." type="text"/>
+</div>
+<div class="flex gap-3">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">vpn_lock</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">security</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">settings_input_component</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-surface-container-lowest/90 backdrop-blur-xl text-primary font-data-sm text-data-sm uppercase fixed left-0 top-0 h-full w-16 md:w-20 z-40 border-r border-outline-variant/20 flat no shadows flex flex-col items-center py-margin space-y-6">
+<div class="mt-14 mb-8">
+<div class="w-10 h-10 border border-primary/40 flex items-center justify-center overflow-hidden">
+<img alt="OPERATOR_AVATAR" class="w-full h-full object-cover grayscale" data-alt="A futuristic operator avatar portrait in high-contrast monochrome. The aesthetic is gritty cyber-industrial with sharp lighting and digital artifacts. The image features a hooded figure with glowing red optical implants against a deep charcoal background with faint technical data overlays. Professional digital art style with absolute precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQnIjIoehLUqlzTGVa03O25HTBTJdJeSukvwxdbpkgExSJx9N-lod--jPZbr0fDPRfSbX0tb5T-zeel4DCQA4yDpa3ppHFPnKsS7KGUdixzUIzJnuEX-vIk8Smur7-A2uq-vH6RJPjURjPM05d8KBhvT6kWPDzhcjWklzPM-IKyj0r-4V37kmnc9kKAQEyWyH38LxWyJ9R4AjMMUTPfz9Ymyx59flRye4Of3TdTwXZpDfBUQ9rA5mXRQeMVthXm_FdCO2CUxYQzw"/>
+</div>
+</div>
+<nav class="flex flex-col w-full">
+<a class="flex flex-col items-center py-4 text-on-secondary-container/60 hover:text-on-surface hover:bg-surface-variant/30 hover:border-r-primary transition-all duration-150 cursor-crosshair active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="text-[8px] font-bold">Matrix</span>
+</a>
+<a class="flex flex-col items-center py-4 bg-primary/10 border-l-2 border-primary text-primary shadow-[0_0_8px_rgba(255,83,91,0.3)] cursor-crosshair active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">waves</span>
+<span class="text-[8px] font-bold">Whale Feed</span>
+</a>
+<a class="flex flex-col items-center py-4 text-on-secondary-container/60 hover:text-on-surface hover:bg-surface-variant/30 hover:border-r-primary transition-all duration-150 cursor-crosshair active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">terminal</span>
+<span class="text-[8px] font-bold">Terminal</span>
+</a>
+<a class="flex flex-col items-center py-4 text-on-secondary-container/60 hover:text-on-surface hover:bg-surface-variant/30 hover:border-r-primary transition-all duration-150 cursor-crosshair active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="text-[8px] font-bold">Strat Map</span>
+</a>
+<a class="flex flex-col items-center py-4 text-on-secondary-container/60 hover:text-on-surface hover:bg-surface-variant/30 hover:border-r-primary transition-all duration-150 cursor-crosshair active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">hub</span>
+<span class="text-[8px] font-bold">Network</span>
+</a>
+</nav>
+<div class="absolute bottom-6 flex flex-col items-center">
+<span class="font-label-caps text-[8px] text-primary/40 uppercase">System</span>
+<div class="w-1.5 h-1.5 bg-primary animate-pulse rounded-full mt-1 shadow-[0_0_4px_#ff535b]"></div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-16 md:ml-20 pt-16 p-margin min-h-screen">
+<!-- Dashboard Header -->
+<div class="mb-gutter flex justify-between items-end border-b border-outline-variant/20 pb-4">
+<div>
+<h1 class="font-display-lg text-display-lg uppercase tracking-tighter text-on-surface">SHADOW_MAPPER // SPECULATIVE_ENGINE</h1>
+<p class="font-data-sm text-data-sm text-on-surface-variant">ACTIVE_NODES: 1,204 | PROJECTED_APRY: 14.8% | THREAT_LEVEL: MINIMAL</p>
+</div>
+<div class="flex gap-2">
+<div class="px-3 py-1 border border-primary text-primary text-data-sm font-bold uppercase">LIVE_TELEMETRY</div>
+<div class="px-3 py-1 border border-outline-variant text-on-surface-variant text-data-sm uppercase">HISTORICAL_OVERLAY</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Opportunity Grid (Main) -->
+<section class="col-span-12 lg:col-span-8 glass-panel p-4">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-2">grid_on</span>
+                        Opportunity Grid: Potential Alpha Nodes
+                    </h2>
+<span class="font-data-sm text-data-sm text-primary">SCANNED: 0.003ms AGO</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full font-data-sm border-collapse">
+<thead>
+<tr class="text-left border-b border-outline-variant/40">
+<th class="pb-2 font-bold uppercase text-on-surface-variant">Asset_ID</th>
+<th class="pb-2 font-bold uppercase text-on-surface-variant">Shadow_Path</th>
+<th class="pb-2 font-bold uppercase text-on-surface-variant">Prob_Index</th>
+<th class="pb-2 font-bold uppercase text-on-surface-variant">Risk_Floor</th>
+<th class="pb-2 font-bold uppercase text-on-surface-variant">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="py-3 font-bold text-primary">BTC/USD.SHADOW</td>
+<td class="py-3">
+<div class="h-6 w-32 bg-surface-container overflow-hidden relative border border-outline-variant/20">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent w-full h-full"></div>
+<!-- Ghost line simulation -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 15 Q 25 5, 50 18 T 100 2" fill="none" stroke="#ff535b" stroke-width="1"></path>
+</svg>
+</div>
+</td>
+<td class="py-3">0.892</td>
+<td class="py-3 text-on-surface-variant">-2.4%</td>
+<td class="py-3">
+<span class="px-2 py-0.5 border border-primary text-[9px] font-bold text-primary animate-pulse">WATCHING</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="py-3 font-bold text-primary">ETH/BTC.CORREL</td>
+<td class="py-3">
+<div class="h-6 w-32 bg-surface-container overflow-hidden relative border border-outline-variant/20">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 10 Q 30 18, 60 5 T 100 12" fill="none" opacity="0.6" stroke="#ff535b" stroke-width="1"></path>
+</svg>
+</div>
+</td>
+<td class="py-3">0.741</td>
+<td class="py-3 text-on-surface-variant">-1.1%</td>
+<td class="py-3">
+<span class="px-2 py-0.5 border border-outline-variant text-[9px] text-on-surface-variant">WAITING</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="py-3 font-bold text-primary">SOL/USDT.GHOST</td>
+<td class="py-3">
+<div class="h-6 w-32 bg-surface-container overflow-hidden relative border border-outline-variant/20 active-glow">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 18 L 20 15 L 40 16 L 60 4 L 80 8 L 100 2" fill="none" stroke="#ff535b" stroke-width="1.5"></path>
+</svg>
+</div>
+</td>
+<td class="py-3">0.955</td>
+<td class="py-3 text-on-surface-variant">-4.8%</td>
+<td class="py-3">
+<span class="px-2 py-0.5 bg-primary text-on-primary text-[9px] font-bold">SIGNAL_LOCKED</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Shadow Sentiment Gauges -->
+<section class="col-span-12 lg:col-span-4 glass-panel p-4 flex flex-col justify-between">
+<div>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4 flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-2">query_stats</span>
+                        Shadow Sentiment Gauges
+                    </h2>
+<div class="space-y-6">
+<!-- Gauge 1 -->
+<div>
+<div class="flex justify-between font-data-sm text-data-sm mb-1">
+<span>MARKET_FEAR_INDEX</span>
+<span class="text-primary">82/100</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary" style="width: 82%"></div>
+</div>
+</div>
+<!-- Gauge 2 -->
+<div>
+<div class="flex justify-between font-data-sm text-data-sm mb-1">
+<span>SOCIAL_DIVERGENCE</span>
+<span class="text-on-surface-variant">41/100</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container overflow-hidden">
+<div class="h-full bg-outline" style="width: 41%"></div>
+</div>
+</div>
+<!-- Gauge 3 -->
+<div>
+<div class="flex justify-between font-data-sm text-data-sm mb-1">
+<span>INSTITUTIONAL_SHADOW</span>
+<span class="text-primary">67/100</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary/60" style="width: 67%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[32px]">psychology</span>
+</div>
+<p class="font-data-sm text-[10px] text-on-surface-variant uppercase leading-tight">
+                        Aggregate sentiment suggests a liquidity grab within the next 4 hours. Recommend defensive postures on high-beta assets.
+                    </p>
+</div>
+</section>
+<!-- Ghost Charts (Large) -->
+<section class="col-span-12 lg:col-span-9 glass-panel p-4 h-96 relative">
+<div class="absolute top-4 left-4 z-10">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-2">show_chart</span>
+                        Projected Path: Volatility Ghosting
+                    </h2>
+<div class="mt-1 flex gap-2">
+<span class="text-primary font-bold font-data-lg text-data-lg">$64,821.40</span>
+<span class="text-on-surface-variant font-data-sm text-data-sm mt-1">EST_DEVIATION: ±0.42%</span>
+</div>
+</div>
+<div class="w-full h-full bg-surface-container-lowest/50 mt-8 border border-outline-variant/10 overflow-hidden relative">
+<!-- Faint background grid already handled by body, adding more here for density -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: linear-gradient(#5b403f 1px, transparent 1px), linear-gradient(90deg, #5b403f 1px, transparent 1px); background-size: 16px 16px;"></div>
+<!-- SVG Chart -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 800 300">
+<!-- Projected Range Area -->
+<path d="M0 200 L 100 180 L 200 220 L 300 150 L 400 180 L 500 140 L 600 160 L 700 80 L 800 100 L 800 250 L 0 250 Z" fill="url(#ghost-grad)" opacity="0.3"></path>
+<!-- Primary Shadow Path -->
+<path d="M0 200 L 100 180 L 200 220 L 300 150 L 400 180 L 500 140 L 600 160 L 700 80 L 800 100" fill="none" stroke="#ff535b" stroke-width="2"></path>
+<!-- Alternate Paths -->
+<path d="M400 180 L 500 190 L 600 230 L 700 210 L 800 240" fill="none" opacity="0.4" stroke="#ff535b" stroke-dasharray="4,2" stroke-width="1"></path>
+<defs>
+<lineargradient id="ghost-grad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#ff535b;stop-opacity:0.4"></stop>
+<stop offset="100%" style="stop-color:#ff535b;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Interaction Overlay -->
+<div class="absolute top-1/2 left-2/3 -translate-y-1/2 border-l border-primary h-24 flex items-center pl-2">
+<div class="bg-primary px-2 py-1">
+<span class="text-on-primary font-bold text-[10px]">T+12H PROJECTION</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Volatility Forecast Heatmap -->
+<section class="col-span-12 lg:col-span-3 glass-panel p-4 flex flex-col">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4 flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-2">heat_pump</span>
+                    Volatility Heatmap
+                </h2>
+<div class="flex-grow grid grid-cols-5 grid-rows-8 gap-1">
+<!-- Heatmap Cells (Simulated) -->
+<div class="bg-primary/20 border border-primary/10"></div>
+<div class="bg-primary/40 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/60 border border-primary/10"></div>
+<div class="bg-primary/5 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/20 border border-primary/10"></div>
+<div class="bg-primary/80 border border-primary/10 active-glow"></div>
+<div class="bg-primary/30 border border-primary/10"></div>
+<div class="bg-primary/15 border border-primary/10"></div>
+<div class="bg-primary/40 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/25 border border-primary/10"></div>
+<div class="bg-primary/60 border border-primary/10"></div>
+<div class="bg-primary/90 border border-primary/10 shadow-[0_0_8px_#ff535b]"></div>
+<!-- Repeat patterns... -->
+<div class="bg-primary/5 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/20 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/5 border border-primary/10"></div>
+<div class="bg-primary/30 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/5 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/20 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/50 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/5 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/5 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/15 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/5 border border-primary/10"></div>
+<div class="bg-primary/20 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/5 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+<div class="bg-primary/10 border border-primary/10"></div>
+</div>
+<div class="mt-4 flex justify-between font-data-sm text-[10px] text-on-surface-variant uppercase">
+<span>Low_V</span>
+<div class="flex-grow mx-2 h-2 bg-gradient-to-r from-primary/5 via-primary/50 to-primary"></div>
+<span>High_V</span>
+</div>
+</section>
+<!-- Real-time Terminal Log -->
+<section class="col-span-12 glass-panel p-4 h-48 overflow-hidden flex flex-col">
+<div class="flex justify-between items-center mb-2">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-2">terminal</span>
+                        Live Speculative Stream
+                    </h2>
+<span class="text-[9px] text-primary bg-primary/10 px-2 py-0.5 border border-primary/20">OPERATIONAL</span>
+</div>
+<div class="flex-grow font-data-sm text-[11px] overflow-y-auto space-y-1">
+<div class="flex gap-4">
+<span class="text-on-surface-variant">[14:02:11]</span>
+<span class="text-on-surface uppercase">Analyzing Shadow Layer 7... All nodes nominal.</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant">[14:02:15]</span>
+<span class="text-primary uppercase font-bold">WARNING: Whale detected on BTC/USD order book depth - Cluster 4.</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant">[14:02:18]</span>
+<span class="text-on-surface uppercase">Projected path updated for ETH/BTC. Alpha probability increased to 0.741.</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant">[14:02:22]</span>
+<span class="text-on-surface uppercase">Volatility heatmap refresh complete. Identifying liquidity hotspots...</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant">[14:02:25]</span>
+<span class="text-primary uppercase font-bold">CRITICAL: Opportunity SOL/USDT.GHOST entering strike zone.</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant">[14:02:29]</span>
+<span class="text-on-surface-variant uppercase italic">System awaiting operator confirmation for shadow trade execution...</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Action Bar (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-dim/95 backdrop-blur-md border-t border-outline-variant/20 h-16 flex items-center justify-around px-margin z-50">
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[8px] font-bold uppercase">Matrix</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">waves</span>
+<span class="text-[8px] font-bold uppercase">Whales</span>
+</a>
+<div class="w-12 h-12 bg-primary flex items-center justify-center -mt-8 border-4 border-surface shadow-xl">
+<span class="material-symbols-outlined text-on-primary">add</span>
+</div>
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[8px] font-bold uppercase">Map</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="text-[8px] font-bold uppercase">Net</span>
+</a>
+</div>
+</body></html>

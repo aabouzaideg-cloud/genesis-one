@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0e0e0e;
+            background-image: radial-gradient(circle, rgba(255, 83, 91, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+            overflow: hidden;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 83, 91, 0.1);
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .terminal-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .terminal-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .terminal-scroll::-webkit-scrollbar-thumb {
+            background: #5b403f;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#b0b3d3",
+                        "tertiary-container": "#ff5352",
+                        "on-tertiary": "#68000b",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#92001c",
+                        "outline": "#ab8987",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed": "#410007",
+                        "inverse-primary": "#bb152c",
+                        "on-tertiary-container": "#5c0008",
+                        "outline-variant": "#5b403f",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#414560",
+                        "surface-bright": "#3a3939",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#c1c4e5",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed": "#410004",
+                        "on-primary": "#680011",
+                        "tertiary-fixed": "#ffdad7",
+                        "secondary-container": "#414560",
+                        "surface-variant": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "primary-fixed": "#ffdad8",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed": "#dee0ff",
+                        "error": "#ffb4ab",
+                        "on-background": "#e5e2e1",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#c1c4e5",
+                        "tertiary": "#ffb3ae",
+                        "on-primary-container": "#5b000e",
+                        "on-surface-variant": "#e4bebc",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#2b2f48",
+                        "background": "#131313",
+                        "surface-tint": "#ffb3b1",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "primary-container": "#ff535b",
+                        "primary": "#ffb3b1",
+                        "on-secondary-fixed": "#161a32"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "12px",
+                        "margin": "16px",
+                        "grid-size": "32px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Inter"],
+                        "data-sm": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "data-md": ["JetBrains Mono"],
+                        "header-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["10px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-sm": ["11px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "data-lg": ["18px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "data-md": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "header-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["13px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="text-on-surface font-body-md">
+<!-- Global TopAppBar -->
+<header class="bg-surface-dim/85 backdrop-blur-md text-primary font-label-caps text-label-caps tracking-tighter docked full-width top-0 z-50 border-b border-outline-variant/20 fixed">
+<div class="flex justify-between items-center h-12 px-margin w-full">
+<div class="font-label-caps text-data-lg font-bold text-primary tracking-widest">GENESIS-ONE</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all duration-200" href="#">SYSTEM_STATUS: NOMINAL</a>
+<a class="text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all duration-200" href="#">CORE_SYNC: 99.9%</a>
+<a class="text-primary font-bold" href="#">TERMINAL_ACTIVE</a>
+</nav>
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-all" data-icon="vpn_lock">vpn_lock</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-all" data-icon="security">security</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-all" data-icon="settings_input_component">settings_input_component</span>
+</div>
+</div>
+</header>
+<!-- Global SideNavBar -->
+<aside class="bg-surface-container-lowest/90 backdrop-blur-xl text-primary fixed left-0 top-0 h-full w-16 md:w-20 z-40 border-r border-outline-variant/20 flex flex-col items-center py-margin space-y-6 pt-16">
+<div class="flex flex-col items-center mb-8">
+<div class="w-10 h-10 border border-primary/30 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="operator_avatar">person</span>
+</div>
+<span class="font-label-caps text-[8px] text-primary/60">OP_SEC_01</span>
+</div>
+<nav class="flex flex-col w-full space-y-2">
+<div class="flex flex-col items-center py-4 text-on-secondary-container/60 hover:text-on-surface hover:bg-surface-variant/30 hover:border-r-primary transition-all duration-150 cursor-crosshair active:scale-95">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Matrix</span>
+</div>
+<div class="flex flex-col items-center py-4 text-on-secondary-container/60 hover:text-on-surface hover:bg-surface-variant/30 hover:border-r-primary transition-all duration-150 cursor-crosshair active:scale-95">
+<span class="material-symbols-outlined" data-icon="waves">waves</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Whale</span>
+</div>
+<div class="flex flex-col items-center py-4 bg-primary/10 border-l-2 border-primary text-primary shadow-[0_0_8px_rgba(255,83,91,0.3)] cursor-crosshair active:scale-95">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Terminal</span>
+</div>
+<div class="flex flex-col items-center py-4 text-on-secondary-container/60 hover:text-on-surface hover:bg-surface-variant/30 hover:border-r-primary transition-all duration-150 cursor-crosshair active:scale-95">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Strat</span>
+</div>
+<div class="flex flex-col items-center py-4 text-on-secondary-container/60 hover:text-on-surface hover:bg-surface-variant/30 hover:border-r-primary transition-all duration-150 cursor-crosshair active:scale-95">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Network</span>
+</div>
+</nav>
+</aside>
+<!-- Main Content: Deep Terminal -->
+<main class="ml-16 md:ml-20 pt-12 h-screen flex flex-col relative overflow-hidden bg-surface-container-lowest">
+<!-- Scanline Overlay -->
+<div class="scanline top-1/4 opacity-20"></div>
+<div class="scanline top-3/4 opacity-10"></div>
+<!-- Terminal Header Info -->
+<div class="flex items-center justify-between px-margin py-2 border-b border-outline-variant/10 bg-surface-container-low/50 backdrop-blur-sm z-10">
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_5px_#ff535b]"></span>
+<span class="font-data-sm text-data-sm text-primary">SESSION_ID: 8829-X-G1</span>
+</div>
+<span class="text-outline-variant">|</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant uppercase">Logic_Core: Gemma-7B-Instruct</span>
+</div>
+<div class="flex items-center space-x-6 font-data-sm text-data-sm text-on-surface-variant">
+<span>BUFFER: 256MB/s</span>
+<span>LATENCY: 14MS</span>
+</div>
+</div>
+<!-- Terminal Output Stream -->
+<div class="flex-1 overflow-y-auto terminal-scroll p-margin font-data-md text-data-md leading-relaxed selection:bg-primary selection:text-on-primary">
+<!-- System Logs -->
+<div class="mb-6 space-y-1">
+<div class="flex space-x-3">
+<span class="text-outline-variant">[14:02:01.002]</span>
+<span class="text-primary font-bold">SYSTEM_INIT</span>
+<span class="text-on-surface">Bootstrapping primary kernel modules... OK</span>
+</div>
+<div class="flex space-x-3">
+<span class="text-outline-variant">[14:02:01.450]</span>
+<span class="text-primary font-bold">NETWORK_CON</span>
+<span class="text-on-surface">Handshake with Whale_Feed established via secure tunnel 0x01</span>
+</div>
+<div class="flex space-x-3">
+<span class="text-outline-variant">[14:02:02.110]</span>
+<span class="text-primary font-bold">CORE_LOGIC</span>
+<span class="text-on-surface">Loading weights into localized VRAM: 100% SUCCESS</span>
+</div>
+</div>
+<!-- JSON Data Stream -->
+<div class="mb-6">
+<div class="text-outline-variant mb-2 font-label-caps text-label-caps">STREAMING_WHALE_FEED_RAW</div>
+<div class="p-4 bg-surface-container/30 border border-outline-variant/10 font-data-sm text-secondary">
+<pre>{
+  "event": "liquidity_surge",
+  "source": "nexus_exchange",
+  "volume": 12500000.00,
+  "currency": "ETH/USDT",
+  "direction": "long",
+  "order_id": "0x88923bc99d",
+  "timestamp": 1704283321,
+  "metadata": {
+    "volatility_index": 0.82,
+    "delta_risk": "low"
+  }
+}
+</pre>
+</div>
+</div>
+<!-- Live Event Logs -->
+<div class="space-y-1">
+<div class="flex space-x-3">
+<span class="text-outline-variant">[14:05:44.221]</span>
+<span class="text-tertiary font-bold">ALERT</span>
+<span class="text-on-surface">Abnormal buy-wall detected on Matrix cluster C-09. Triggering sentiment analysis.</span>
+</div>
+<div class="flex space-x-3">
+<span class="text-outline-variant">[14:05:46.001]</span>
+<span class="text-primary font-bold">GEMMA_EXE</span>
+<span class="text-on-surface">"Probability of market breakout within 15 minutes stands at 78.4%."</span>
+</div>
+<div class="flex space-x-3">
+<span class="text-outline-variant">[14:05:47.500]</span>
+<span class="text-outline">INPUT_REQ</span>
+<span class="text-on-surface-variant italic">Waiting for manual override or parameter tune...</span>
+</div>
+</div>
+<!-- Filler for scrollability -->
+<div class="h-64"></div>
+</div>
+<!-- Terminal Input Prompt -->
+<div class="p-margin border-t border-outline-variant/20 bg-surface-container-lowest z-10">
+<div class="flex items-center space-x-4 bg-surface-container-low/30 border border-outline-variant/20 px-4 py-3 focus-within:border-primary/50 transition-all shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]">
+<span class="text-primary font-bold font-data-lg text-data-lg">&gt;</span>
+<input autofocus="" class="flex-1 bg-transparent border-none text-primary font-data-lg text-data-lg focus:ring-0 placeholder:text-outline-variant/50" placeholder="EXECUTE COMMAND OR OVERRIDE PARAMETERS..." type="text"/>
+<div class="flex items-center space-x-2 text-outline-variant font-label-caps text-[9px]">
+<span class="px-1.5 py-0.5 border border-outline-variant">RETURN</span>
+<span>TO SEND</span>
+</div>
+</div>
+<!-- System Stats Bottom Bar -->
+<div class="flex justify-between mt-3 font-data-sm text-[10px] text-on-secondary-container/50 tracking-widest uppercase">
+<div class="flex space-x-6">
+<span>CPU_LOAD: 24%</span>
+<span>MEM_USE: 12.8GB</span>
+<span>THROUGHPUT: 4.2K OPS/S</span>
+</div>
+<div>
+                    LOCATION: TERMINAL_01 // SECURE_LINE
+                </div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute bottom-32 right-8 w-48 h-48 opacity-10 pointer-events-none">
+<div class="grid grid-cols-4 grid-rows-4 gap-1 w-full h-full">
+<div class="bg-primary animate-pulse"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-primary/50"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-primary"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-primary/20"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-primary/40"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-outline-variant"></div>
+<div class="bg-primary"></div>
+</div>
+</div>
+</main>
+<!-- Background Data Visual Decoration -->
+<div class="fixed bottom-0 left-0 w-full h-1 pointer-events-none bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+</body></html>

@@ -1,0 +1,34 @@
+[
+  {
+    "wallet": "0xb3a3bdf39e881062a5966f093a2b94ccb1e3a636",
+    "total_size": 111.11111,
+    "trade_count": 1,
+    "markets": [
+      "0x40e923d788ca"
+    ]
+  },
+  {
+    "wallet": "0xa02c640cb866e1d1782e2f46ae2a948d189b0331",
+    "total_size": 11.713928,
+    "trade_count": 1,
+    "markets": [
+      "0x0220e3208520"
+    ]
+  },
+  {
+    "wallet": "0x5590b339898b8cf7440008184c5f0fb2bf1de557",
+    "total_size": 3.571427,
+    "trade_count": 1,
+    "markets": [
+      "0x12587fe0cd6a"
+    ]
+  },
+  {
+    "wallet": "0x02f7d5462436e13e3435b8168fa2e85b80e9dd8f",
+    "total_size": 1.369862,
+    "trade_count": 1,
+    "markets": [
+      "0x12587fe0cd6a"
+    ]
+  }
+]

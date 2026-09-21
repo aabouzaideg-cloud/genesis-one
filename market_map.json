@@ -1,0 +1,498 @@
+{
+  "_readme": [
+    "Curated Polymarket condition_id → Capital.com epic mapping.",
+    "Level 1 (exact): add condition_ids from markets you actively want to trade.",
+    "How to find a condition_id: go to the market on polymarket.com, open DevTools → Network,",
+    "  look for /markets/ API call, copy the 'conditionId' field.",
+    "Level 2 (keyword scoring) handles everything not listed here."
+  ],
+
+  "curated": {
+    "── Bitcoin ─────────────────────────────────────────────────────": "",
+    "0xa0f4c4924ea1a8b410b4ce821c2a9955fad21a1b19bdcfde90816732278b3dd5": {
+      "epic": "BTCUSD",
+      "description": "Will Bitcoin hit $150k by June 30, 2026?",
+      "confidence": 1.0,
+      "volume": 15734008
+    },
+    "0x02deb9538f5c123373adaa4ee6217b01745f1662bc902e46ac92f3fe6f8741e8": {
+      "epic": "BTCUSD",
+      "description": "Will Bitcoin hit $150k by December 31, 2026?",
+      "confidence": 0.9,
+      "volume": 291903
+    },
+    "0x58078283e2356f9b9537b42e7479d7785b83bcd6f18002de8a2526c499eda837": {
+      "epic": "BTCUSD",
+      "description": "Will Bitcoin reach $85,000 in May 2026?",
+      "confidence": 1.0,
+      "volume": 500000
+    },
+
+    "── S&P 500 / Macro ─────────────────────────────────────────────": "",
+    "0xd4e77ba6f29fc093509d24f508631abd445ecf506bbdc9c4c80e60256a318527": {
+      "epic": "US500",
+      "description": "Will no Fed rate cuts happen in 2026?",
+      "confidence": 0.9,
+      "volume": 300000
+    },
+    "0x9e4a663b12e3171821acb0a32a0b1bd9de1da68a5545ea90114f5c336a88b2dd": {
+      "epic": "US500",
+      "description": "Will S&P 500 (SPY) hit LOW $705 Week of May 4 2026?",
+      "confidence": 0.9,
+      "volume": 200000
+    },
+    "0x669cfac096cbeeb6e07a8b7d6371552120ee6ba5bae1c4c209654068d35169d7": {
+      "epic": "US500",
+      "description": "U.S. recession before May 2025?",
+      "confidence": 0.8,
+      "volume": 858547
+    },
+
+    "── Oil / Energy / Middle East ──────────────────────────────────": "",
+    "0x9352c559e9648ab4cab236087b64ca85c5b7123a4c7d9d7d4efde4a39c18056f": {
+      "epic": "OIL_CRUDE",
+      "description": "Will the Iranian regime fall by June 30?",
+      "confidence": 1.0,
+      "volume": 36347983
+    },
+    "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846": {
+      "epic": "OIL_CRUDE",
+      "description": "Will the U.S. invade Iran before 2027?",
+      "confidence": 1.0,
+      "volume": 21420548
+    },
+    "0xa1d97efb8a19de58d995edf58b882c4f99ef356c8a564af8daf888a7610edea1": {
+      "epic": "OIL_CRUDE",
+      "description": "Kharg Island no longer under Iranian control by May 31?",
+      "confidence": 1.0,
+      "volume": 4826988
+    },
+    "0x6897736d782ce70f47126dfcec6669073f563d6e757e60bc61c0367370d6f73e": {
+      "epic": "OIL_CRUDE",
+      "description": "Kharg Island no longer under Iranian control by June 30?",
+      "confidence": 1.0,
+      "volume": 2084986
+    },
+    "0xa70fc3695a65833b91b45df6db6015096f3e1471b70352ca411b4209010e7633": {
+      "epic": "OIL_CRUDE",
+      "description": "US-Iran nuclear deal by June 30?",
+      "confidence": 0.9,
+      "volume": 1544043
+    },
+
+    "_EXPIRED_0x924a2942": "Strait of Hormuz traffic returns to normal by end of April? — EXPIRED 2026-05",
+
+    "── Live Hormuz / Iran markets added 2026-05-05 ─────────────────": "",
+    "0xbcacd5a055f5a9ced6f69f122216c073dd6987d08253fc07bbcc168fa5b81d55": {
+      "epic": "OIL_CRUDE",
+      "description": "US obtains Iranian enriched uranium by May 31?",
+      "confidence": 1.0,
+      "volume": 8609241
+    },
+    "0xb196a122933da9aff6cb8b0f3764d0dc5db1859f46c0481c711521eee8524291": {
+      "epic": "OIL_CRUDE",
+      "description": "Iran leadership change by June 30?",
+      "confidence": 1.0,
+      "volume": 822517
+    },
+    "0x0c38dd9305e3205557885183f0730270779e7e426b0ec3e7743f23963b6d6e4a": {
+      "epic": "OIL_CRUDE",
+      "description": "Will France, UK, or Germany strike Iran by June 30?",
+      "confidence": 1.0,
+      "volume": 927211
+    },
+    "0x36f665053a7ca5c102f2db15cfc49b1b9f38fa820a5f2bb4bde87bf9fbd9a2ab": {
+      "epic": "OIL_CRUDE",
+      "description": "Will Trump announce a US blockade of the Strait of Hormuz?",
+      "confidence": 1.0,
+      "volume": 986268
+    },
+    "0x182390641d3b1b47cc64274b9da290efd04221c586651ba190880713da6347d9": {
+      "epic": "OIL_CRUDE",
+      "description": "US-Iran nuclear deal before 2027?",
+      "confidence": 0.9,
+      "volume": 951939
+    },
+
+    "── Russia / Ukraine (DE30 + EURUSD) ────────────────────────────": "",
+    "0x9c1a953fe92c8357f1b646ba25d983aa83e90c525992db14fb726fa895cb5763": {
+      "epic": "DE30",
+      "description": "Russia-Ukraine ceasefire before GTA VI?",
+      "confidence": 0.85,
+      "volume": 0
+    },
+
+    "── FOMC / Fed Rate June 2026 (US500) ──────────────────────────": "",
+    "0xdde06286a7b9464d344f410ab0b3d2ebc6469904e72c27fd982f65fdbf78768d": {
+      "epic": "US500",
+      "description": "Will the Fed cut rates by 25 bps in June 2026?",
+      "confidence": 0.95,
+      "volume": 3152005
+    },
+    "0x4e4a7df876b0c04f0b8b29b9073eddfbaf5c787192da825ae7ca1031bc8cfd15": {
+      "epic": "US500",
+      "description": "Will the Fed cut rates by 50+ bps in June 2026?",
+      "confidence": 0.95,
+      "volume": 4376605
+    },
+    "0xde04b189b3f19eaccda02529a3ea67abfc46bff5c0c8fc42d8a2d0ed7b8f0d41": {
+      "epic": "US500",
+      "description": "Will there be no change in Fed rates in June 2026?",
+      "confidence": 0.90,
+      "volume": 3006816
+    },
+    "0xa7cb4135c6d9c36da0e343874dd5b455de739c6d1b9f9f5583dd9320aacf5db2": {
+      "epic": "US500",
+      "description": "Will the Fed hike rates by 25 bps in June 2026?",
+      "confidence": 0.90,
+      "volume": 3108034
+    },
+    "0xb01e70a56199a6d5467f47a2b94e75e7c7218c128c8d0b8beb6dafed2f0d15c2": {
+      "epic": "US500",
+      "description": "Will the Fed hike rates by 50+ bps in June 2026?",
+      "confidence": 0.90,
+      "volume": 4423121
+    },
+    "── WTI Crude Oil Price Targets May 2026 ────────────────────────": "",
+    "0x1591b72dc504383d8fa2024e72a585c520b3c673614100d2e167507485e17e38": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $150 in May 2026?", "confidence": 1.0, "volume": 1145309
+    },
+    "0x0220e320852050a884e73bfe20447cbabe17ce934107cebc48a829b4a558204f": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $200 in May 2026?", "confidence": 1.0, "volume": 1033111
+    },
+    "0x4bab360a81b57047b48c0dd7c6c1377706129e3e6b9fa3f079cc28d310ec4cec": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $110 in May 2026?", "confidence": 1.0, "volume": 885172
+    },
+    "0x416e3cbe25a60b8210f4e67c056ea2b03f4d511e7b969826d69ef90b753ff214": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $120 in May 2026?", "confidence": 1.0, "volume": 757411
+    },
+    "0xd86177011df25e467bdfa1c25481edaf1006e88da184965173e03c8d1cc4f2d6": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $140 in May 2026?", "confidence": 1.0, "volume": 658255
+    },
+    "0x828aaec481308550a867fff3bd1e497ca1ebb5998fcf1fb40aaa4abfeb85db26": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $130 in May 2026?", "confidence": 1.0, "volume": 644334
+    },
+    "0xb33fe992242f035a0fe5ea878b24c6647e8514d241b3db60d447dce9f0c3638a": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $105 in May 2026?", "confidence": 1.0, "volume": 267259
+    },
+    "0xdeb0a6abf730d613190d1b49e64bbedb2af0cc14f8a6f87e8da9282e64c29c0b": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $115 in May 2026?", "confidence": 1.0, "volume": 237918
+    },
+    "0xb2c850d2ede176dd65446a88a1687acb9a632ae1a879f25bb277da96ea38ecd9": {
+      "epic": "OIL_CRUDE", "description": "WTI hit HIGH $100 in May 2026?", "confidence": 1.0, "volume": 234380
+    },
+
+    "── CL Crude Oil Price Targets June 2026 ($14M volume) ─────────": "",
+    "0xdda7d5017be661e87715a6e9e4933aad8a9231041cc7d5103c11a3fcb14bf292": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $100 by end of June 2026?", "confidence": 1.0, "volume": 3166148
+    },
+    "0x5f879a52e5349db7f66d386ca75f1a9bb608fdd6a738a1582681613730b23281": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $200 by end of June 2026?", "confidence": 1.0, "volume": 3076969
+    },
+    "0xeda0e0633f131b761cbe6c6e5e16ae347c48d9448a08c5826bfc2c794b63758e": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $150 by end of June 2026?", "confidence": 1.0, "volume": 1856480
+    },
+    "0x7ae064ed7f3c9f4d201ce007b05b3a23f8e824170981c4d301f07301d554f451": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $175 by end of June 2026?", "confidence": 1.0, "volume": 1368354
+    },
+    "0x0443a503a38b90446c8a3826db5ee1323144197ef2b4ed09bcdf545ac104dfcb": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $140 by end of June 2026?", "confidence": 1.0, "volume": 709659
+    },
+    "0x46f19d5bedd6d601d597d308d86814245974014d8a108395a7690d7a099cacdd": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $115 by end of June 2026?", "confidence": 1.0, "volume": 561438
+    },
+    "0xba8af64c1b08f322ca7f66f3cfdbdfd50c0eae6fc88d2fcf29c30ceb62682421": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $120 by end of June 2026?", "confidence": 1.0, "volume": 560128
+    },
+    "0xcb139a61f2cc201078f5ed717781b7227b740645d07fec2a07d2d4bcd16ff8a7": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $110 by end of June 2026?", "confidence": 1.0, "volume": 512567
+    },
+    "0xa5d0dfc81e6a87faa737df4ca52fae7e18b63d9f7568e364c6c7d8c45fb39e8b": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $130 by end of June 2026?", "confidence": 1.0, "volume": 403327
+    },
+    "0xcd368b70d3203f9360acd9226a144c65f0aa13fc66eb42fd60e9a4746041a37d": {
+      "epic": "OIL_CRUDE", "description": "CL hit HIGH $105 by end of June 2026?", "confidence": 1.0, "volume": 178175
+    },
+
+    "── Gold (GC) Price Targets June 2026 ($4.6M volume) ───────────": "",
+    "0x246559691ae64806ee51dcc5ca1d1216bf6e25d80127a3425b72ba559190e96f": {
+      "epic": "GOLD", "description": "GC hit HIGH $5,500 by end of June?", "confidence": 1.0, "volume": 1263452
+    },
+    "0x8a62a7f7a9affdded6b3947b0fb63a5e8701e544a263d76d200599642c97d956": {
+      "epic": "GOLD", "description": "GC hit HIGH $7,000 by end of June?", "confidence": 1.0, "volume": 513768
+    },
+    "0x8a5a60f6fd16bf2713bddbfdd483e2978895ac19d9ca3017dbf278992a6f5810": {
+      "epic": "GOLD", "description": "GC hit HIGH $8,500 by end of June?", "confidence": 1.0, "volume": 272660
+    },
+    "0xa5e7d10be376119fb259e6a5943b72802ba120278d78cac17dc69bc69ce7dd80": {
+      "epic": "GOLD", "description": "GC hit HIGH $8,000 by end of June?", "confidence": 1.0, "volume": 333877
+    },
+    "0x1eedfdbff1c7a12b40b84ed8043b8acc8fd3400993f0d1445c5b1b172f244232": {
+      "epic": "GOLD", "description": "GC hit HIGH $6,000 by end of June?", "confidence": 1.0, "volume": 294465
+    },
+    "0xb5799004182dc796006345365f449ceead54be4f8f20e5e1290ce57d16d2b8a3": {
+      "epic": "GOLD", "description": "GC hit HIGH $6,500 by end of June?", "confidence": 1.0, "volume": 258864
+    },
+    "0xa12b90437f45f6d1e2224ec9afa76472eb2bf981d7391fed4a49d6e6c8506471": {
+      "epic": "GOLD", "description": "GC hit HIGH $10,000 by end of June?", "confidence": 1.0, "volume": 234345
+    },
+    "0x7abd4cc8b0e4cb0adec29103b57e8af7e0ce0855bf604e4eae40129aab0c206f": {
+      "epic": "GOLD", "description": "GC hit HIGH $9,000 by end of June?", "confidence": 1.0, "volume": 116846
+    },
+    "0x41321cf6f7de3f4cd158b99b3c3f51b0e1c807f5c3a7ab9d0140c24fbdf54b38": {
+      "epic": "GOLD", "description": "GC hit HIGH $6,200 by end of June?", "confidence": 1.0, "volume": 102839
+    },
+
+    "── Gold (GC) Settlement June 2026 ($921K volume) ───────────────": "",
+    "0x7130b2c99bee81af658adafb4a6235f21575f568e3ae2a850af742afa50c2d85": {
+      "epic": "GOLD", "description": "GC settle $5,800-$6,200 in June?", "confidence": 0.95, "volume": 244407
+    },
+    "0x7d4227c3c4f79de22bbf5b10301d3e99733151de11a2af04ee5d4fe9147fdb94": {
+      "epic": "GOLD", "description": "GC settle >$6,200 in June?", "confidence": 0.95, "volume": 194222
+    },
+
+    "── Bitcoin Price Targets May 2026 ($4.6M volume) ───────────────": "",
+    "0x97947fe256c481e0f651723674a93ecf35c3999f782b56f41b40c31cb78b2af4": {
+      "epic": "BTCUSD", "description": "BTC reach $150,000 in May?", "confidence": 1.0, "volume": 921223
+    },
+    "0x12587fe0cd6aa29260510a658db7d3e03de052bbc9d77ec29fbc4579a0999db1": {
+      "epic": "BTCUSD", "description": "BTC reach $90,000 in May?", "confidence": 1.0, "volume": 371961
+    },
+    "0x58078283e2356f9b9537b42e7479d7785b83bcd6f18002de8a2526c499eda837": {
+      "epic": "BTCUSD", "description": "BTC reach $85,000 in May?", "confidence": 1.0, "volume": 365273
+    },
+    "0x4f61a39a39d5be042ae73f2b814e525789edb29c9a7b012fc6733f87192ce4b2": {
+      "epic": "BTCUSD", "description": "BTC reach $100,000 in May?", "confidence": 1.0, "volume": 304407
+    },
+    "0x40e923d788caaed2066daac648f76bbf8dbf04177e248724b4103467ae66d2ff": {
+      "epic": "BTCUSD", "description": "BTC reach $95,000 in May?", "confidence": 1.0, "volume": 216168
+    },
+    "0xe5816efc6bf134c855332961d5fe47cd29495a00e3dfd56abe7c2a2ed86f4d04": {
+      "epic": "BTCUSD", "description": "BTC reach $80,000 in May?", "confidence": 1.0, "volume": 195622
+    },
+    "0x7f8f6342f0a0b8c90ff6113fdb9f9e5fb83a0fe24e3a409a2ab5f3305cee299a": {
+      "epic": "BTCUSD", "description": "BTC reach $105,000 in May?", "confidence": 1.0, "volume": 121217
+    },
+    "0xbb75f6c9d3dfbd54b0506888925591b376bd1ab443d1ea93ff430bd3d9620506": {
+      "epic": "BTCUSD", "description": "BTC reach $110,000 in May?", "confidence": 1.0, "volume": 71832
+    },
+    "0x1609e9af7f2903aad19db3e5931841aecf98e35489ebd65f00525d03d31c8270": {
+      "epic": "BTCUSD", "description": "BTC reach $115,000 in May?", "confidence": 1.0, "volume": 65059
+    },
+
+    "── Bitcoin $150k — When? ($18.4M volume) ───────────────────────": "",
+    "0xe85aa009b1296e6cb66571d2f1e33db3a91939711dd073486ef1b8f2a53ad1a8": {
+      "epic": "BTCUSD", "description": "BTC hit $150k by September 30?", "confidence": 1.0, "volume": 778900
+    },
+    "0x0cd467df4030e7da99133ae20665f0905e6a9cbc6706d11c87712730a0434170": {
+      "epic": "BTCUSD", "description": "BTC hit $150k by December 31?", "confidence": 1.0, "volume": 1555670
+    },
+
+    "── Ethereum Price Targets May 2026 ($914K volume) ──────────────": "",
+    "0xa24ab699db0ef04c103f21426efbf8be968a509dd4b11b7cc50e766ea0ef59eb": {
+      "epic": "ETHUSD", "description": "ETH reach $2,400 in May?", "confidence": 1.0, "volume": 118247
+    },
+    "0x5a8963c510d3f2a1cb669882cccc5f521fd3ed1c75e0af56ace20346170ddb1f": {
+      "epic": "ETHUSD", "description": "ETH reach $2,800 in May?", "confidence": 1.0, "volume": 98011
+    },
+    "0x523c642a2da7b7fcf4ecb1da444d805c790fe16497fa83ba6f99046ec7343ade": {
+      "epic": "ETHUSD", "description": "ETH reach $2,600 in May?", "confidence": 1.0, "volume": 91378
+    },
+    "0x53747b506af84bc4212fc7b8a519340d91389f1ac12f0ff10605e8e96b5848c6": {
+      "epic": "ETHUSD", "description": "ETH reach $5,000 in May?", "confidence": 1.0, "volume": 89182
+    },
+    "0xf61c22712328d3422718545c663375cdca9310425fa67dabac2757bf53a11eec": {
+      "epic": "ETHUSD", "description": "ETH reach $3,000 in May?", "confidence": 1.0, "volume": 82496
+    },
+
+    "── Silver (SI) Price Targets June 2026 ($3.9M volume) ──────────": "",
+    "0x1b252df7e5281d8fb86888619f4ee1f5045c9f2aecb857d361819ca6522e4665": {
+      "epic": "SILVER", "description": "SI hit HIGH $120 by end of June?", "confidence": 1.0, "volume": 928410
+    },
+    "0x35241fd758ba0da8bc3d7df2706aaf87d8420c5004ae3c4ceaa07b432f955850": {
+      "epic": "SILVER", "description": "SI hit HIGH $200 by end of June?", "confidence": 1.0, "volume": 501812
+    },
+    "0xbb6db11fa76323814a73cd76cdaa459f502078166bf5810e6de1b013af7334f8": {
+      "epic": "SILVER", "description": "SI hit HIGH $150 by end of June?", "confidence": 1.0, "volume": 356455
+    },
+    "0x2e034ceb0544227ee4c8a11c650cf7c1bb977e63b73e03992a23e4778686de22": {
+      "epic": "SILVER", "description": "SI hit HIGH $250 by end of June?", "confidence": 1.0, "volume": 267156
+    },
+    "0x077b60b7261e4a474def4863f80c432368debf93208bf3647b4e21b784e2a4aa": {
+      "epic": "SILVER", "description": "SI hit HIGH $210 by end of June?", "confidence": 1.0, "volume": 247941
+    },
+    "0x27651d9f3426ef2a4f907aa78f2ed69cdb22f2570d5c05d85f6f998b5b5a4524": {
+      "epic": "SILVER", "description": "SI hit HIGH $130 by end of June?", "confidence": 1.0, "volume": 199524
+    },
+    "0xa7917e7d6769c541fb3002db0e61c898d4a1fee139f50fbcfdf71fd7b78fcb22": {
+      "epic": "SILVER", "description": "SI hit HIGH $170 by end of June?", "confidence": 1.0, "volume": 172000
+    },
+    "0x316af0f7262e114901940c132e97cf8055577de4da2c26525798f43536ec2236": {
+      "epic": "SILVER", "description": "SI hit HIGH $110 by end of June?", "confidence": 1.0, "volume": 140496
+    },
+    "0x42906a6d7941e5a8a92cdb9d413a84c198e5fcb110bda21341f1dadaefc78908": {
+      "epic": "SILVER", "description": "SI hit HIGH $230 by end of June?", "confidence": 1.0, "volume": 108700
+    },
+
+    "── Fed Rate Cuts 2026 ($23.3M volume) — dovish = bullish US500 ─": "",
+    "0x4914bfdd892a48c341b5e0f41ec10475a815f2277273110b16f95e21084bfe75": {
+      "epic": "US500", "description": "6 Fed rate cuts in 2026?", "confidence": 0.95, "volume": 2333345
+    },
+    "0x1adf074e048fa613f4ddbc0766088748a48d120a3a713b0183e219032a411ae3": {
+      "epic": "US500", "description": "11 Fed rate cuts in 2026?", "confidence": 0.95, "volume": 2748406
+    },
+    "0x757c144993b3cb831e04c42bfcff8c18864c7da4f4688a5939d2f62e031cbc87": {
+      "epic": "US500", "description": "10 Fed rate cuts in 2026?", "confidence": 0.95, "volume": 2268086
+    },
+    "0xffa0accb74987c0dc33a70eb3780c1da160206bcfb3ef5d16c1667bc5c459c78": {
+      "epic": "US500", "description": "12+ Fed rate cuts in 2026?", "confidence": 0.95, "volume": 1979382
+    },
+    "0x4ec6fcb43fe1a32163c7da09d54a99ab9bf6abdc6fd49939d7ad67d696a3248b": {
+      "epic": "US500", "description": "9 Fed rate cuts in 2026?", "confidence": 0.95, "volume": 1862772
+    },
+    "0xfe28cb84a714b1a964290d7fd2587e71d57e905678c8ab64488449b24be78e52": {
+      "epic": "US500", "description": "8 Fed rate cuts in 2026?", "confidence": 0.95, "volume": 1547075
+    },
+    "0x7ee722a07e0f84405f1267bc1c84eb95bd6348454453abf445618e778af8fd18": {
+      "epic": "US500", "description": "5 Fed rate cuts in 2026?", "confidence": 0.90, "volume": 1288795
+    },
+    "0xe0d9f508a249e0070db06eb7d1e1fb17eb23c963f6fb722c4c3f81e23240c1cd": {
+      "epic": "US500", "description": "2 Fed rate cuts in 2026?", "confidence": 0.90, "volume": 1123908
+    },
+    "0x4d162a40c3e3f458b0e0017485d7f9e6ead0cdd0573e38b26e0d5420525ccfa4": {
+      "epic": "US500", "description": "Fed rate cut by June 2026 meeting?", "confidence": 0.95, "volume": 255223
+    },
+    "0xb4022c0b2718eca7ad27195f2d48f06527fa000269d188e1d3001ff8bbc16956": {
+      "epic": "US500", "description": "Fed rate cut by September 2026 meeting?", "confidence": 0.90, "volume": 87966
+    },
+    "0xc60022fe066abd6f96c375adb09f38d92c4931f09c10b805354581b4e5465e93": {
+      "epic": "US500", "description": "Fed rate cut by December 2026 meeting?", "confidence": 0.90, "volume": 100016
+    },
+
+    "── Russia x Ukraine Ceasefire (DE30 + EURUSD) ──────────────────": "",
+    "0xa93b28a6384aefff4e7d5adb2061c444e4a0e95b8ad17755f9cee123c7099b35": {
+      "epic": "DE30", "description": "Russia x Ukraine ceasefire by May 31?", "confidence": 0.95, "volume": 3452090
+    },
+    "0xe546672750517f62c45a5a00067481981e62b9c20fa8220203232c9dc8fd2093": {
+      "epic": "DE30", "description": "Russia x Ukraine ceasefire by June 30?", "confidence": 0.95, "volume": 7909032
+    },
+
+    "── Remaining Fed Rate Cuts 2026 ────────────────────────────────": "",
+    "0x5e082f0b57f47a29044aa35b4c5658393122e659d5feae521c06b57cdd7f905c": {
+      "epic": "US500", "description": "Will 1 Fed rate cut happen in 2026?", "confidence": 0.85, "volume": 1159832
+    },
+    "0xaece8d6062d3e3eb9845b32441a4ab06eb2ef332c0228bc6a36add450647c7c4": {
+      "epic": "US500", "description": "Will 4 Fed rate cuts happen in 2026?", "confidence": 0.85, "volume": 1084627
+    },
+    "0x2368d2604c9c2b95bc98c51bd50c66e5351caebf05b9fe79d3398c387fe29a89": {
+      "epic": "US500", "description": "Will 7 Fed rate cuts happen in 2026?", "confidence": 0.85, "volume": 1040274
+    },
+    "0x8d4966e84ae80f24b2e14643fdd45364e354229e11e2c17903b4b1763cfbe67c": {
+      "epic": "US500", "description": "Will 3 Fed rate cuts happen in 2026?", "confidence": 0.85, "volume": 1016997
+    },
+
+    "── Ethereum Downside Targets ───────────────────────────────────": "",
+    "0xcf25ccc8360f3952139fb5e3f14cb9bb0636cb53d0e30e947321ceccab7e9780": {
+      "epic": "ETHUSD", "description": "Will Ethereum dip to $1,500 by Dec 31, 2026?", "confidence": 0.9, "volume": 824458
+    },
+
+    "── Natural Gas / LNG ───────────────────────────────────────────": "",
+
+    "── New high-volume markets scraped 2026-05-06 ──────────────────": "",
+    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b": {
+      "epic": "US500", "description": "Fed rate hike in 2026?", "confidence": 0.95, "volume": 988367
+    },
+    "0xce3c54c3e773e8b3bf73e4c12af93205b21195d03b9c386e22f274b9acfc2c56": {
+      "epic": "BTCUSD", "description": "Will Bitcoin dip to $50,000 by December 31, 2026?", "confidence": 1.0, "volume": 967945
+    },
+    "0xb941af01c632229376fa4d7c994369c90743654bc9a7a36072ec4fbb0bc855cc": {
+      "epic": "OIL_CRUDE", "description": "Will Crude Oil hit LOW $40 by end of June?", "confidence": 1.0, "volume": 95835
+    },
+    "0x4e15f0f425d28b87024ba9f19504e074da257e3d231d3222618a67c5c0f600ba": {
+      "epic": "US500", "description": "Will the Fed lower bound reach 0.5% or lower before 2027?", "confidence": 0.90, "volume": 97016
+    },
+    "0x0357f760e337c64f62a83f89f0bc99faf22778453188878330cc39a535eaf68a": {
+      "epic": "US500", "description": "Will S&P 500 hit $7,700 HIGH in June?", "confidence": 0.95, "volume": 9831
+    },
+    "0xb0b6ce555a817b462f5d76b2b57408bc853a18406f919528fbdb20d1e709403e": {
+      "epic": "GOLD", "description": "Will Gold hit HIGH $5,000 in May?", "confidence": 1.0, "volume": 9773
+    },
+    "0xa867539bac5474f24de306eb150b4f440270ba7a9701f127b43685e60b55289c": {
+      "epic": "ETHUSD", "description": "Will Ethereum reach $2,700 May 4-10?", "confidence": 1.0, "volume": 9667
+    },
+    "0x4e56465ca9aeb50d88c2a3dae975af781306b18a5d093f869200bdb7c441d28f": {
+      "epic": "ETHUSD", "description": "Will the price of Ethereum be above $2,100 on May 8?", "confidence": 1.0, "volume": 9555
+    },
+    "0x718135d518c397ffca20bc77405eca43e439b8958c286149992dafe4f82dfcf7": {
+      "epic": "OIL_CRUDE", "description": "Will US crude oil reserves fall to 325M by June 5?", "confidence": 0.85, "volume": 9867
+    },
+
+    "── Hormuz Traffic / Blockade Lifted May 2026 — added 2026-05-06 ──": "",
+    "0x518a5b030b205706b8ffe6bbad9bd3de59548348e5c0471827f5de21e513333c": {
+      "epic": "OIL_CRUDE", "description": "Strait of Hormuz traffic returns to normal by end of May?", "confidence": 1.0, "volume": 500000
+    },
+    "0xffe381a80c1e36f9e0b03a542aa8fe56e74a67d2566a4e29396d4427aa4244c9": {
+      "epic": "OIL_CRUDE", "description": "Strait of Hormuz traffic returns to normal by May 15?", "confidence": 1.0, "volume": 200000
+    },
+    "0x22014d44b787385b7baddb2b9d56cdcf5904fd7783b83c28403962dd71e51a51": {
+      "epic": "OIL_CRUDE", "description": "Trump announces Hormuz blockade lifted by May 22, 2026?", "confidence": 1.0, "volume": 200000
+    },
+    "0x8b369e10358094a99ffe7f85a81a8e8ca68c611eee0fe63a2efa790ad045bcd6": {
+      "epic": "OIL_CRUDE", "description": "Trump announces Hormuz blockade lifted by May 31, 2026?", "confidence": 1.0, "volume": 200000
+    },
+
+    "── US-Iran Peace Deal / Enrichment (OIL_CRUDE) — added 2026-05-06 ─": "",
+    "0x1db02ba50e2312a62b4104de691cc7a76065d8d0da40decf93eb1b914a3217b7": {
+      "epic": "OIL_CRUDE", "description": "US x Iran permanent peace deal by May 15, 2026?", "confidence": 1.0, "volume": 1660000
+    },
+    "0x0e4a0c937b8934c2475613b6322b3f8edc8dedc24762e01e42b0e6f87424a089": {
+      "epic": "OIL_CRUDE", "description": "US x Iran permanent peace deal by May 31, 2026?", "confidence": 1.0, "volume": 500000
+    },
+    "0x6114a8a3f9ac214f48a7e20d169f1c7a5c84082cb6f7058ed9fe1137b11fd0e7": {
+      "epic": "OIL_CRUDE", "description": "US x Iran permanent peace deal by June 30, 2026?", "confidence": 1.0, "volume": 500000
+    },
+    "0xda2386dbc3f5c6ae7ecebc6c9c01ee682a83ea61f0cc57f5d64fed6e872bd275": {
+      "epic": "OIL_CRUDE", "description": "US x Iran peace deal before Trump visits China?", "confidence": 0.95, "volume": 200000
+    },
+    "0x09148e8a5260a4c40aceb29badc45845fe08330497756bfcc1017c478c28bb65": {
+      "epic": "OIL_CRUDE", "description": "Iran agrees to end enrichment of uranium by May 31?", "confidence": 0.95, "volume": 500000
+    },
+    "0xc0b2acd094ebce0630fa9b3e899eb90c6a77424ebf01f67baf12b843af35f719": {
+      "epic": "OIL_CRUDE", "description": "Trump announces Hormuz blockade lifted by May 8, 2026?", "confidence": 0.95, "volume": 983000
+    },
+    "0x2bef40a1f62d045527228e699990d1bd1f97906b2458a6f3e4a0daf11124060c": {
+      "epic": "OIL_CRUDE", "description": "US x Iran diplomatic meeting by May 31, 2026?", "confidence": 0.95, "volume": 100000
+    },
+    "0xdfc8e76bdf670f8bfda884f6e9101ae4e75e7f6074a16694c5e5976d0ce7dca2": {
+      "epic": "US500", "description": "Will Donald Trump visit China on May 14, 2026?", "confidence": 0.95, "volume": 780000
+    },
+
+    "── Bitcoin December 2026 Targets — added 2026-05-06 ───────────": "",
+    "0x885a6abefad122348b4fbd503473d7fd1f9035d0438cf988a7591620f316a859": {
+      "epic": "BTCUSD", "description": "Will Bitcoin reach $130,000 by December 31, 2026?", "confidence": 0.95, "volume": 915000
+    },
+    "0xa7b594ae07d5c1590fa86028fcc2f8705990437237416556c05837a08b2e1cda": {
+      "epic": "BTCUSD", "description": "Will Bitcoin reach $150,000 by December 31, 2026? (alt)", "confidence": 0.90, "volume": 879000
+    },
+    "0x18076e7d0f58a52d3d4f311d0456306edf16d1873cf5eef27d3ff044153e9576": {
+      "epic": "BTCUSD", "description": "Bitcoin all time high by December 31, 2026?", "confidence": 0.90, "volume": 868000
+    },
+    "0x4bd2d6744cfb40bd33520963069947643140e9facccec0b44d1e61944aa96997": {
+      "epic": "BTCUSD", "description": "Will China unban Bitcoin by 2027?", "confidence": 0.85, "volume": 843000
+    },
+    "0x63eaf41ce1f475323e2202d7dfa3b1def8b82cd166f7007c50bfbf47615c7b01": {
+      "epic": "BTCUSD", "description": "Will Bitcoin reach $110,000 by December 31, 2026?", "confidence": 0.95, "volume": 840000
+    },
+
+    "── Add more below as you find them ────────────────────────────": ""
+  },
+
+  "_instructions": [
+    "To add a new market:",
+    "  1. Open the market on polymarket.com",
+    "  2. DevTools → Network → filter by clob.polymarket.com",
+    "  3. Copy the conditionId field (long hex string)",
+    "  4. Add entry here with epic and description",
+    "The keyword fallback in market_mapper.py handles anything not listed here."
+  ]
+}
